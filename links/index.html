@@ -1,0 +1,22 @@
+---
+title: "EKCP: Links"
+layout: "default"
+---
+            <section class="links-panel links-intro">
+                <h1>Links</h1>
+
+                <p>Collection of links thought to be useful.</p>
+            </section>
+
+            <section class="links-panel links-data">
+			
+			<ul>
+{% for link in site.data.links %}
+  <li>
+    <a href="{{ link.href }}">{{ link.href }}</a>
+	<p>{{ link.description }}
+  </li>
+{% endfor %}
+</ul>
+
+            </section>

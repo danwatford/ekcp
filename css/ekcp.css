@@ -1,0 +1,10 @@
+
+/* Apply some padding to the top of the body so the fixed navigation bar does not cover content */
+body {
+    padding-top: 50px;
+}
+
+
+#site-image {
+    max-width: 400px;
+}

@@ -1,0 +1,22 @@
+---
+title: "EKCP: Music"
+layout: "default"
+---
+            <section class="music-panel music-intro">
+                <h1>Music</h1>
+
+                <p>Sheet music for various tunes sometimes played by EKCP</p>
+            </section>
+
+            <section class="music-panel music-data">
+			
+			<ul>
+{% for music in site.data.music %}
+  <li>
+    <a href="{{ music.href }}">{{ music.href }}</a>
+	<p>{{ music.description }}
+  </li>
+{% endfor %}
+</ul>
+
+            </section>
