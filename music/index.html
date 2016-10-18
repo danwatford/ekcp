@@ -18,6 +18,13 @@ layout: "default"
   </li>
 {% endfor %}
 
+{% for abc in site.abc %}
+  <li>
+    <a href="{{ abc.url }}">{{ abc.heading }} - ABC/HTML Version</a>
+	<p>{{ abc.description }}
+  </li>
+{% endfor %}
+
 </ul>
 
             </section>
