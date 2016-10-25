@@ -1,0 +1,48 @@
+$(function() {
+	"use strict";
+	var body = $('body');
+
+	function setPage(page) {
+		var els = $('.menu li');
+		els.removeClass('selected');
+		els = $('button[data-page='+page+']');
+		els.closest('li').addClass('selected');
+		els = $('.page');
+		els.hide();
+		els = $('.page[data-page='+page+']');
+		els.show();
+	}
+
+	body.on("click", ".menu button", function() {
+		var el = $(this);
+		var page = el.attr('data-page');
+		window.location.hash = '#' + page;
+		setPage(page);
+	});
+
+	var tune = "X:1\nT:Speed the Plough\nM:4/4\nC:Trad.\nK:G\n|:GABc dedB|dedB dedB|c2ec B2dB|c2A2 A2BA|\nGABc dedB|dedB dedB|c2ec B2dB|A2F2 G4:|\n|:g2gf gdBd|g2f2 e2d2|c2ec B2dB|c2A2 A2df|\ng2gf g2Bd|g2f2 e2d2|c2ec B2dB|A2F2 G4:|";
+	$('.source').text(tune);
+	//window.ABCJS.midi.soundfontUrl = "/public/soundfont/";
+	window.ABCJS.renderAbc('engraving', tune);
+	window.ABCJS.renderMidi("main-midi", tune, {}, { generateInline: true }, {});
+
+	var e1 = 'paul';
+	var e2 = 'rosen';
+	var e3 = '@';
+
+	$('.email').attr('href', 'mailto:' + e1+e3+e1+e2+'.net');
+
+	var hash = window.location.hash;
+	if (hash.length > 0) {
+		setPage(hash.substring(1));
+	}
+
+	window.addEventListener('popstate', function(event)
+	{
+		var arr = (''+document.location).split('#');
+		if (arr.length > 1 && arr[1].length > 0)
+			setPage(arr[1]);
+		else
+			setPage('what');
+	});
+});
