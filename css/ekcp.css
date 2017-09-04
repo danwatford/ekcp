@@ -8,3 +8,9 @@ body {
 #site-image {
     max-width: 400px;
 }
+
+/* Copyright image and text links */
+#copyright {
+	display: block;
+	max-width: 500px;
+}
